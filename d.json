@@ -1,25 +1,21 @@
 [
   {
-  "id": "kratos-registration",
-  "match": {
-    "url": "http://kratos.nguyenminhduy.click/self-service/registration.*",
-    "methods": ["GET", "POST"]
-  },
-  "authenticators": [
-    {
-      "handler": "anonymous"
+    "id": "kratos-registration",
+    "match": {
+      "url": "http://localhost/self-service/registration<.*>",
+      "methods": ["GET", "POST"]
+    },
+    "authenticators": [
+      { "handler": "anonymous" }
+    ],
+    "authorizer": {
+      "handler": "allow"
+    },
+    "mutators": [
+      { "handler": "noop" }
+    ],
+    "upstream": {
+      "url": "http://kratos.nguyenminhduy.click"
     }
-  ],
-  "authorizer": {
-    "handler": "allow"
-  },
-  "mutators": [
-    {
-      "handler": "noop"
-    }
-  ],
-  "upstream": {
-    "url": "http://kratos.nguyenminhduy.click"
   }
-}
 ]
