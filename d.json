@@ -2,7 +2,7 @@
   {
   "id": "kratos-registration",
   "match": {
-    "url": "http://<[^/]+>/self-service/registration.*",
+    "url": "http://kratos.nguyenminhduy.click/self-service/registration.*",
     "methods": ["GET", "POST"]
   },
   "authenticators": [
