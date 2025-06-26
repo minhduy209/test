@@ -2,7 +2,7 @@
   {
     "id": "kratos-registration",
     "match": {
-      "url": "http://localhost/self-service/registration<.*>",
+      "url": "http://oathkeeper.nguyenminhduy.click/self-service/registration<.*>",
       "methods": ["GET", "POST"]
     },
     "authenticators": [
