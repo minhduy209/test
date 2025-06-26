@@ -9,7 +9,7 @@
         "authorizer": { "handler": "allow" },
         "mutators": [ { "handler": "noop" } ],
         "upstream": {
-          "url": "http://kratos.ory.svc.cluster.local:4433"
+          "url": "http://kratos.nguyenminhduy.click/"
         }
       },
       {
@@ -22,7 +22,7 @@
         "authorizer": { "handler": "allow" },
         "mutators": [ { "handler": "noop" } ],
         "upstream": {
-          "url": "http://localhost:4456"
+          "url": "http://oathkeeper-api.ory.svc.cluster.local:4456"
         }
       }
     ]
