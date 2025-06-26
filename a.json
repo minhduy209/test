@@ -5,7 +5,7 @@
           "url": "http://<[^/]+>/self-service/registration.*",
           "methods": ["GET", "POST"]
         },
-        "authenticators": [ { "handler": "anonymous" } ],
+        "authenticators": [ { "handler": "noop" } ],
         "authorizer": { "handler": "allow" },
         "mutators": [ { "handler": "noop" } ],
         "upstream": {
@@ -18,7 +18,7 @@
           "url": "http://<[^/]+>/health/ready",
           "methods": ["GET"]
         },
-        "authenticators": [ { "handler": "anonymous" } ],
+        "authenticators": [ { "handler": "noop" } ],
         "authorizer": { "handler": "allow" },
         "mutators": [ { "handler": "noop" } ],
         "upstream": {
