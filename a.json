@@ -1,25 +1,28 @@
-[
-{
-  "id": "kratos-registration",
-  "match": {
-    "url": "http://<[^/]+>/self-service/registration.*",
-    "methods": ["GET", "POST"]
-  },
-  "authenticators": [
-    {
-      "handler": "anonymous"
-    }
-  ],
-  "authorizer": {
-    "handler": "allow"
-  },
-  "mutators": [
-    {
-      "handler": "noop"
-    }
-  ],
-  "upstream": {
-    "url": "http://kratos.nguyenminhduy.click"
-  }
-}
-]
+    [
+      {
+        "id": "kratos-registration",
+        "match": {
+          "url": "http://<[^/]+>/self-service/registration.*",
+          "methods": ["GET", "POST"]
+        },
+        "authenticators": [ { "handler": "anonymous" } ],
+        "authorizer": { "handler": "allow" },
+        "mutators": [ { "handler": "noop" } ],
+        "upstream": {
+          "url": "http://kratos.ory.svc.cluster.local:4433"
+        }
+      },
+      {
+        "id": "health-check",
+        "match": {
+          "url": "http://<[^/]+>/health/ready",
+          "methods": ["GET"]
+        },
+        "authenticators": [ { "handler": "anonymous" } ],
+        "authorizer": { "handler": "allow" },
+        "mutators": [ { "handler": "noop" } ],
+        "upstream": {
+          "url": "http://localhost:4456"
+        }
+      }
+    ]
