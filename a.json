@@ -1,28 +1,25 @@
-    [
+[
+  {
+    "id": "rule-1",
+    "upstream": {
+      "url": "https://httpbin.org/anything"
+    },
+    "match": {
+      "url": "http://<[^/]+>/authenticator/noop/authorizer/allow/mutator/noop",
+      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"]
+    },
+    "authenticators": [
       {
-        "id": "kratos-registration",
-        "match": {
-          "url": "http://<[^/]+>/self-service/registration.*",
-          "methods": ["GET", "POST"]
-        },
-        "authenticators": [ { "handler": "noop" } ],
-        "authorizer": { "handler": "allow" },
-        "mutators": [ { "handler": "noop" } ],
-        "upstream": {
-          "url": "http://kratos.nguyenminhduy.click/"
-        }
-      },
+        "handler": "noop"
+      }
+    ],
+    "authorizer": {
+      "handler": "allow"
+    },
+    "mutators": [
       {
-        "id": "health-check",
-        "match": {
-          "url": "http://<[^/]+>/health/ready",
-          "methods": ["GET"]
-        },
-        "authenticators": [ { "handler": "noop" } ],
-        "authorizer": { "handler": "allow" },
-        "mutators": [ { "handler": "noop" } ],
-        "upstream": {
-          "url": "http://oathkeeper-api.ory.svc.cluster.local:4456"
-        }
+        "handler": "noop"
       }
     ]
+  }
+]
