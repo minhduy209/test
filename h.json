@@ -1,0 +1,44 @@
+[
+  {
+    "id": "kratos-registration",
+    "match": {
+      "url": "http://oathkeeper.nguyenminhduy.click/self-service/registration<.*>",
+      "methods": ["GET", "POST"]
+    },
+    "authenticators": [
+      { "handler": "anonymous" }
+    ],
+    "authorizer": {
+      "handler": "allow"
+    },
+    "mutators": [
+      { "handler": "noop" }
+    ],
+    "upstream": {
+      "url": "http://kratos-public.ory.svc.cluster.local"
+    }
+  },
+{
+  "id": "document-access",
+  "upstream": {
+    "url": "http://kratos-public.ory.svc.cluster.local"
+  },
+  "match": {
+    "url": "http://oathkeeper.nguyenminhduy.click/documents/<.*>",
+    "methods": ["GET", "POST"]
+  },
+  "authenticators": [
+    { "handler": "cookie_session" }
+  ],
+  "authorizer": {
+    "handler": "keto_engine_acp_ory",
+    "config": {
+      "base_url": "http://keto-write-headless.ory.svc.cluster.local:4467",
+      "flavor": "regex"
+    }
+  },
+  "mutators": [
+    { "handler": "noop" }
+  ]
+}
+]
