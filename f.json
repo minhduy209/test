@@ -17,5 +17,28 @@
     "upstream": {
       "url": "http://kratos-public.ory.svc.cluster.local"
     }
-  }
+  },
+{
+  "id": "document-access",
+  "upstream": {
+    "url": "http://localhost:8080"
+  },
+  "match": {
+    "url": "http://<domain>/documents/<.*>",
+    "methods": ["GET", "POST"]
+  },
+  "authenticators": [
+    { "handler": "cookie_session" }
+  ],
+  "authorizer": {
+    "handler": "keto_engine_acp_ory",
+    "config": {
+      "base_url": "http://keto:4467",
+      "flavor": "regex"
+    }
+  },
+  "mutators": [
+    { "handler": "noop" }
+  ]
+}
 ]
