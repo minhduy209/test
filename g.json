@@ -21,7 +21,7 @@
 {
   "id": "document-access",
   "upstream": {
-    "url": "http://http://kratos-public.ory.svc.cluster.local"
+    "url": "http://kratos-public.ory.svc.cluster.local"
   },
   "match": {
     "url": "http://oathkeeper.nguyenminhduy.click/documents/<.*>",
