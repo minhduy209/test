@@ -21,10 +21,10 @@
 {
   "id": "document-access",
   "upstream": {
-    "url": "http://localhost:8080"
+    "url": "http://http://kratos-public.ory.svc.cluster.local"
   },
   "match": {
-    "url": "http://<domain>/documents/<.*>",
+    "url": "http://oathkeeper.nguyenminhduy.click/documents/<.*>",
     "methods": ["GET", "POST"]
   },
   "authenticators": [
@@ -33,7 +33,7 @@
   "authorizer": {
     "handler": "keto_engine_acp_ory",
     "config": {
-      "base_url": "http://keto:4467",
+      "base_url": "http://keto-write-headless.ory.svc.cluster.local:4467",
       "flavor": "regex"
     }
   },
