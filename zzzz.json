@@ -1,0 +1,19 @@
+{
+  "id": "kratos-registration",
+  "match": {
+    "url": "<^/self-service/registration(|/.*)?$>",
+    "methods": ["GET", "POST"]
+  },
+  "authenticators": [
+    { "handler": "anonymous" }
+  ],
+  "authorizer": {
+    "handler": "allow"
+  },
+  "mutators": [
+    { "handler": "noop" }
+  ],
+  "upstream": {
+    "url": "http://kratos-public.ory.svc.cluster.local:80"
+  }
+}
