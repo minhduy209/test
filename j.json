@@ -15,7 +15,7 @@
       { "handler": "noop" }
     ],
     "upstream": {
-      "url": "http://kratos-staging.btaskee.work"
+      "url": "https://kratos-staging.btaskee.work"
     }
   }
 ]
